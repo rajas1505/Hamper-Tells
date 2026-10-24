@@ -46,7 +46,7 @@ const PORT = process.env.PORT || 5050;
 
 app.listen(PORT, () => {
   console.log(`===================================================`);
-  console.log(`🌸 THE HAMPER TELLS — Server running on port ${PORT}`);
+  console.log(`🌸 HAMPER TELLS — Server running on port ${PORT}`);
   console.log(`🌐 Website URL: http://localhost:${PORT}`);
   console.log(`===================================================`);
 });

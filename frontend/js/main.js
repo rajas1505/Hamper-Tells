@@ -1,5 +1,5 @@
 /* ==========================================================================
-   THE HAMPER TELLS — Main Application Utilities & Global Navigation
+   HAMPER TELLS — Main Application Utilities & Global Navigation
    ========================================================================== */
 
 const Main = {
@@ -175,7 +175,7 @@ const Main = {
             <div class="modal-header border-0 pb-0 pt-4 px-4 d-flex justify-content-between align-items-start">
               <div>
                 <span class="badge bg-pink text-burgundy border px-3 py-1 mb-2">
-                  <i class="fas fa-gift me-1"></i> Welcome to The Hamper Tells
+                  <i class="fas fa-gift me-1"></i> Welcome to Hamper Tells
                 </span>
                 <h4 class="font-heading text-burgundy mb-1" id="customerGateLabel">Enter Your Details</h4>
                 <p class="text-muted fs-7 mb-0">Please share your details before browsing our handcrafted gifting collection.</p>
@@ -267,7 +267,7 @@ const Main = {
         if (data.success && data.user) {
           API.setAuth(data.user, data.user.token);
           this.updateNavAuth();
-          this.showToast(`Welcome to The Hamper Tells, ${data.user.name}! 🌸 Enjoy 10% off with code WELCOME10`);
+          this.showToast(`Welcome to Hamper Tells, ${data.user.name}! 🌸 Enjoy 10% off with code WELCOME10`);
           bsModal.hide();
         } else {
           throw new Error(data.message || 'Could not verify customer details');

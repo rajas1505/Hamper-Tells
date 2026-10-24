@@ -1,7 +1,7 @@
 {
-  "name": "the-hamper-tells",
+  "name": "hamper-tells",
   "version": "1.0.0",
-  "description": "The Hamper Tells — Premium Personalized Gifting Store & Custom Hamper Builder",
+  "description": "Hamper Tells — Premium Personalized Gifting Store & Custom Hamper Builder",
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
