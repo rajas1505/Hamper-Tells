@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & Financial Management — The Hamper Tells</title>
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Chart.js for Sales & Loss Visualizations -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+  <!-- Top Admin Bar -->
+  <nav class="admin-navbar sticky-top">
+    <div class="container-fluid px-4 d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <a class="navbar-brand navbar-brand-logo text-white fs-4 mb-0" href="admin.html">
+          THE HAMPER <span class="text-pink">TELLS</span>
+        </a>
+        <span class="badge bg-secondary text-white fs-7 py-1 px-2 d-none d-sm-inline">
+          <i class="fas fa-crown text-warning me-1"></i> Owner Admin Panel
+        </span>
+      </div>
+
+      <div class="d-flex align-items-center gap-3">
+        <a href="index.html" class="btn btn-outline-light btn-sm" target="_blank" title="Open Storefront in new tab">
+          <i class="fas fa-external-link-alt me-1"></i> View Storefront
+        </a>
+
+        <div class="dropdown">
+          <button class="btn btn-dark btn-sm dropdown-toggle border-secondary" type="button" data-bs-toggle="dropdown">
+            <i class="fas fa-user-circle text-pink me-1"></i> <span id="adminNameDisplay">Store Admin</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end shadow">
+            <li><span class="dropdown-item-text text-muted fs-7">Role: <strong>Store Administrator</strong></span></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><button class="dropdown-item text-danger" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt me-2"></i> Logout</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="container-fluid px-4 py-4">
+
+    <!-- Header & Tabs Header -->
+    <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 pb-2 border-bottom">
+      <div>
+        <h2 class="font-heading text-burgundy mb-1">Administrative Dashboard</h2>
+        <p class="text-muted fs-7 mb-0">Monthly sales, business losses, total revenue, customer logins & order fulfillment records.</p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <ul class="nav admin-nav-tabs mt-3 mt-md-0" id="adminMainTabs" role="tablist">
+        <li class="nav-item">
+          <button class="nav-link active" id="tab-overview-btn" data-bs-toggle="tab" data-bs-target="#tab-overview">
+            <i class="fas fa-chart-line me-1"></i> Overview
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab-financials-btn" data-bs-toggle="tab" data-bs-target="#tab-financials">
+            <i class="fas fa-file-invoice-dollar me-1"></i> Monthly Sales & Loss
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab-orders-btn" data-bs-toggle="tab" data-bs-target="#tab-orders">
+            <i class="fas fa-boxes me-1"></i> Orders
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab-customers-btn" data-bs-toggle="tab" data-bs-target="#tab-customers">
+            <i class="fas fa-users me-1"></i> Customer Accounts
+          </button>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" id="tab-products-btn" data-bs-toggle="tab" data-bs-target="#tab-products">
+            <i class="fas fa-gift me-1"></i> Products
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Tab Contents -->
+    <div class="tab-content" id="adminMainTabsContent">
+
+      <!-- ===================================================================
+           TAB 1: OVERVIEW & ANALYTICS
+           =================================================================== -->
+      <div class="tab-pane fade show active" id="tab-overview" role="tabpanel">
+
+        <!-- KPI Summary Cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-kpi-card kpi-revenue">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="text-muted fs-7 text-uppercase fw-semibold">Total Gross Revenue</div>
+                  <h3 class="font-heading text-dark mb-0 mt-1" id="kpiTotalRevenue">₹0</h3>
+                  <small class="text-success"><i class="fas fa-arrow-up me-1"></i> Real-time orders</small>
+                </div>
+                <div class="stat-icon-wrapper bg-success bg-opacity-10 text-success">
+                  <i class="fas fa-wallet"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-kpi-card kpi-loss">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="text-muted fs-7 text-uppercase fw-semibold">Total Expenses & Loss</div>
+                  <h3 class="font-heading text-danger mb-0 mt-1" id="kpiTotalLoss">₹0</h3>
+                  <small class="text-muted">Materials, wastage & ops</small>
+                </div>
+                <div class="stat-icon-wrapper bg-danger bg-opacity-10 text-danger">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-kpi-card kpi-profit">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="text-muted fs-7 text-uppercase fw-semibold">Net Business Profit</div>
+                  <h3 class="font-heading text-burgundy mb-0 mt-1" id="kpiNetProfit">₹0</h3>
+                  <small class="text-muted">Margin: <span id="kpiProfitMargin" class="fw-bold text-success">0%</span></small>
+                </div>
+                <div class="stat-icon-wrapper bg-pink text-burgundy">
+                  <i class="fas fa-coins"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-xl-3">
+            <div class="stat-kpi-card kpi-orders">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="text-muted fs-7 text-uppercase fw-semibold">Orders & Fulfillment</div>
+                  <h3 class="font-heading text-primary mb-0 mt-1" id="kpiTotalOrders">0</h3>
+                  <small class="text-muted"><span id="kpiDeliveredOrders">0</span> Delivered</small>
+                </div>
+                <div class="stat-icon-wrapper bg-primary bg-opacity-10 text-primary">
+                  <i class="fas fa-box-check"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row g-4 mb-4">
+          <!-- Monthly Sales vs Loss Bar Chart -->
+          <div class="col-lg-8">
+            <div class="bg-white p-4 rounded-3 border shadow-sm h-100">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="font-heading text-burgundy mb-0">
+                  <i class="fas fa-chart-bar text-pink me-2"></i> Monthly Sales vs. Expenses & Losses Trend
+                </h5>
+                <span class="badge bg-light text-dark border">FY 2026</span>
+              </div>
+              <div style="height: 320px;">
+                <canvas id="monthlySalesLossChart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Status & Category Distribution Doughnut Charts -->
+          <div class="col-lg-4">
+            <div class="bg-white p-4 rounded-3 border shadow-sm h-100">
+              <h5 class="font-heading text-burgundy mb-3">
+                <i class="fas fa-pie-chart text-pink me-2"></i> Order Status Distribution
+              </h5>
+              <div style="height: 220px;" class="d-flex justify-content-center">
+                <canvas id="orderStatusChart"></canvas>
+              </div>
+              <hr class="my-3">
+              <div class="d-flex justify-content-between text-muted fs-7">
+                <span>Active Customers: <strong class="text-dark" id="overviewCustomerCount">0</strong></span>
+                <span>Active Products: <strong class="text-dark" id="overviewProductCount">0</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity: Recent Orders & Recent Losses -->
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="bg-white p-4 rounded-3 border shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="font-heading text-burgundy mb-0">Recent Customer Orders</h5>
+                <button class="btn btn-outline-blush btn-sm py-0 px-2 fs-7" onclick="document.getElementById('tab-orders-btn').click()">View All Orders</button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 fs-7">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Order ID</th>
+                      <th>Customer</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentOrdersTableBody">
+                    <!-- Loaded dynamically via admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="bg-white p-4 rounded-3 border shadow-sm">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="font-heading text-burgundy mb-0">Recent Costs & Losses</h5>
+                <button class="btn btn-blush btn-sm py-0 px-2 fs-7" data-bs-toggle="modal" data-bs-target="#recordExpenseModal">
+                  <i class="fas fa-plus me-1"></i> Record Loss
+                </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0 fs-7">
+                  <thead class="table-light">
+                    <tr>
+                      <th>Title / Reason</th>
+                      <th>Category</th>
+                      <th>Amount</th>
+                      <th>Month</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recentExpensesTableBody">
+                    <!-- Loaded dynamically via admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           TAB 2: MONTHLY SALES & LOSS TRACKER
+           =================================================================== -->
+      <div class="tab-pane fade" id="tab-financials" role="tabpanel">
+
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+          <div>
+            <h4 class="font-heading text-burgundy mb-1">Monthly Financial Statements & Loss Ledger</h4>
+            <p class="text-muted fs-7 mb-0">Detailed breakdown of gross revenue, recorded production expenses, flower/item wastage losses, and net profits.</p>
+          </div>
+          <button class="btn btn-blush shadow-sm" data-bs-toggle="modal" data-bs-target="#recordExpenseModal">
+            <i class="fas fa-plus-circle me-1"></i> Record New Expense / Loss Entry
+          </button>
+        </div>
+
+        <!-- Monthly Financial Performance Table -->
+        <div class="bg-white p-4 rounded-3 border shadow-sm mb-4">
+          <h5 class="font-heading text-burgundy mb-3">Monthly Sales vs Loss Summary Statement</h5>
+          <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle mb-0 fs-7">
+              <thead class="table-dark">
+                <tr>
+                  <th>Month</th>
+                  <th>Orders Count</th>
+                  <th>Gross Sales (Revenue)</th>
+                  <th>Total Costs & Loss</th>
+                  <th>Net Profit / (Loss)</th>
+                  <th>Profit Margin</th>
+                  <th>Financial Status</th>
+                </tr>
+              </thead>
+              <tbody id="monthlySummaryTableBody">
+                <!-- Loaded dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Detailed Expense & Loss Ledger Table -->
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
+          <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+            <h5 class="font-heading text-burgundy mb-2 mb-md-0">Itemized Cost & Loss Records</h5>
+            <div class="d-flex align-items-center gap-2">
+              <select id="expenseFilterCategory" class="form-select form-select-sm" style="width: 220px;" onchange="filterExpenseList()">
+                <option value="All">All Categories</option>
+                <option value="Raw Materials">Raw Materials & Flowers</option>
+                <option value="Packaging & Ribbons">Packaging & Ribbons</option>
+                <option value="Logistics & Courier">Logistics & Courier</option>
+                <option value="Damaged & Wastage Loss">Damaged & Wastage Loss</option>
+                <option value="Operational & Utilities">Operational & Utilities</option>
+                <option value="Marketing & Ads">Marketing & Ads</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 fs-7">
+              <thead class="table-light">
+                <tr>
+                  <th>Date</th>
+                  <th>Description / Title</th>
+                  <th>Category</th>
+                  <th>Amount</th>
+                  <th>Month</th>
+                  <th>Notes</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="allExpensesTableBody">
+                <!-- Loaded dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           TAB 3: ORDERS MANAGEMENT
+           =================================================================== -->
+      <div class="tab-pane fade" id="tab-orders" role="tabpanel">
+
+        <div class="bg-white p-4 rounded-3 border shadow-sm mb-4">
+          <div class="row g-3 align-items-center">
+            <div class="col-md-5">
+              <div class="input-group input-group-sm">
+                <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
+                <input type="text" id="orderSearchInput" class="form-control border-start-0" placeholder="Search by Order ID, customer name, email, phone...">
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="d-flex align-items-center gap-2">
+                <label class="fs-7 text-muted text-nowrap mb-0">Status:</label>
+                <select id="orderStatusFilter" class="form-select form-select-sm" onchange="loadAdminOrders()">
+                  <option value="All">All Statuses</option>
+                  <option value="Order Placed">Order Placed</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Preparing">Preparing</option>
+                  <option value="Packed">Packed</option>
+                  <option value="Shipped">Shipped</option>
+                  <option value="Delivered">Delivered</option>
+                  <option value="Cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-md-3 text-md-end">
+              <span id="orderResultsCount" class="text-muted fs-7">Showing 0 orders</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 fs-7">
+              <thead class="table-light">
+                <tr>
+                  <th>Order ID</th>
+                  <th>Customer Info</th>
+                  <th>Items / Hamper</th>
+                  <th>Payment</th>
+                  <th>Total Amount</th>
+                  <th>Delivery Target</th>
+                  <th>Current Status</th>
+                  <th>Update Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="ordersManagementTableBody">
+                <!-- Loaded dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           TAB 4: CUSTOMER ACCOUNTS ("all the login for the customers too")
+           =================================================================== -->
+      <div class="tab-pane fade" id="tab-customers" role="tabpanel">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h4 class="font-heading text-burgundy mb-1">Customer Accounts & Authentication Directory</h4>
+            <p class="text-muted fs-7 mb-0">All registered customer accounts, login IDs, contact profiles, lifetime orders & total expenditures.</p>
+          </div>
+          <span class="badge bg-pink text-burgundy border px-3 py-2 fs-7" id="totalCustomerBadge">
+            0 Customers Registered
+          </span>
+        </div>
+
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 fs-7">
+              <thead class="table-light">
+                <tr>
+                  <th>#</th>
+                  <th>Customer Name</th>
+                  <th>Login Email Address</th>
+                  <th>Phone Number</th>
+                  <th>Joined Date</th>
+                  <th>Total Orders</th>
+                  <th>Total Spent</th>
+                  <th>Account Status</th>
+                </tr>
+              </thead>
+              <tbody id="customersTableBody">
+                <!-- Loaded dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===================================================================
+           TAB 5: PRODUCT CATALOG & INVENTORY
+           =================================================================== -->
+      <div class="tab-pane fade" id="tab-products" role="tabpanel">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
+            <h4 class="font-heading text-burgundy mb-1">Store Product Catalog & Inventory</h4>
+            <p class="text-muted fs-7 mb-0">Manage products, stock availability, pricing & featured showcases.</p>
+          </div>
+          <button class="btn btn-blush shadow-sm" data-bs-toggle="modal" data-bs-target="#addProductModal">
+            <i class="fas fa-plus me-1"></i> Add New Product
+          </button>
+        </div>
+
+        <div class="bg-white p-4 rounded-3 border shadow-sm">
+          <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0 fs-7">
+              <thead class="table-light">
+                <tr>
+                  <th>Product Image</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Occasion</th>
+                  <th>Price</th>
+                  <th>Stock Available</th>
+                  <th>Rating</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="productsAdminTableBody">
+                <!-- Loaded dynamically via admin.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 1: RECORD EXPENSE OR LOSS
+       =================================================================== -->
+  <div class="modal fade" id="recordExpenseModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-3 shadow">
+        <div class="modal-header bg-light border-0">
+          <h5 class="modal-title font-heading text-burgundy">
+            <i class="fas fa-file-invoice text-pink me-2"></i> Record Business Expense / Loss
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="recordExpenseForm">
+          <div class="modal-body p-4">
+            <div class="mb-3">
+              <label class="form-label fs-7 font-heading text-muted">Expense / Loss Description</label>
+              <input type="text" id="expenseTitle" class="form-control" placeholder="e.g. Wilted Flower Wastage during Transit" required>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fs-7 font-heading text-muted">Category</label>
+                <select id="expenseCategory" class="form-select" required>
+                  <option value="Raw Materials">Raw Materials (Flowers/Chocolates)</option>
+                  <option value="Packaging & Ribbons">Packaging & Ribbons</option>
+                  <option value="Logistics & Courier">Logistics & Courier</option>
+                  <option value="Damaged & Wastage Loss">Damaged & Wastage Loss</option>
+                  <option value="Operational & Utilities">Operational & Utilities</option>
+                  <option value="Marketing & Ads">Marketing & Ads</option>
+                  <option value="Other Expenses">Other Expenses</option>
+                </select>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label fs-7 font-heading text-muted">Amount (₹)</label>
+                <input type="number" id="expenseAmount" class="form-control" placeholder="e.g. 450" min="1" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fs-7 font-heading text-muted">Date of Expense / Loss</label>
+              <input type="date" id="expenseDate" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fs-7 font-heading text-muted">Additional Notes (Optional)</label>
+              <textarea id="expenseNotes" class="form-control" rows="2" placeholder="e.g. Invoice #2938, supplier wholesale credit"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" id="btnSaveExpense" class="btn btn-blush px-4">Save Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 2: ORDER DETAILS & TIMELINE
+       =================================================================== -->
+  <div class="modal fade" id="orderDetailsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 rounded-3 shadow">
+        <div class="modal-header bg-light border-0">
+          <div>
+            <h5 class="modal-title font-heading text-burgundy" id="orderModalTitle">Order Details</h5>
+            <small class="text-muted" id="orderModalSubtitle"></small>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4" id="orderModalBody">
+          <!-- Filled dynamically via admin.js -->
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 3: ADD NEW PRODUCT
+       =================================================================== -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 rounded-3 shadow">
+        <div class="modal-header bg-light border-0">
+          <h5 class="modal-title font-heading text-burgundy">Add New Gift Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <form id="addNewProductForm">
+          <div class="modal-body p-4">
+            <div class="row g-3 mb-3">
+              <div class="col-md-8">
+                <label class="form-label fs-7 font-heading text-muted">Product Name</label>
+                <input type="text" id="newProdName" class="form-control" required placeholder="e.g. Lavender Dream Bouquet">
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fs-7 font-heading text-muted">Price (₹)</label>
+                <input type="number" id="newProdPrice" class="form-control" required placeholder="e.g. 799" min="1">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label class="form-label fs-7 font-heading text-muted">Category</label>
+                <select id="newProdCategory" class="form-select" required>
+                  <option value="Hampers">Hampers</option>
+                  <option value="Bouquets">Bouquets</option>
+                  <option value="Chocolate Bouquets">Chocolate Bouquets</option>
+                  <option value="Personalized Gifts">Personalized Gifts</option>
+                  <option value="Birthday Gifts">Birthday Gifts</option>
+                  <option value="Flowers">Flowers</option>
+                  <option value="Gift Combos">Gift Combos</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fs-7 font-heading text-muted">Occasion</label>
+                <select id="newProdOccasion" class="form-select">
+                  <option value="All">All Occasions</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="For Her">For Her</option>
+                  <option value="For Him">For Him</option>
+                  <option value="Celebration">Celebration</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-3">
+              <div class="col-md-8">
+                <label class="form-label fs-7 font-heading text-muted">Image URL</label>
+                <input type="url" id="newProdImage" class="form-control" placeholder="https://images.unsplash.com/photo-..." required>
+              </div>
+              <div class="col-md-4">
+                <label class="form-label fs-7 font-heading text-muted">Stock Quantity</label>
+                <input type="number" id="newProdStock" class="form-control" value="25" min="0" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fs-7 font-heading text-muted">Product Description</label>
+              <textarea id="newProdDesc" class="form-control" rows="3" placeholder="Describe the handcrafted creation..." required></textarea>
+            </div>
+
+            <div class="form-check form-switch mb-2">
+              <input class="form-check-input" type="checkbox" id="newProdFeatured" checked>
+              <label class="form-check-label fs-7 font-heading text-muted" for="newProdFeatured">Display in Featured Section on Home Page</label>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" id="btnSaveProduct" class="btn btn-blush px-4">Create Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart-store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages/admin.js"></script>
+</body>
+</html>

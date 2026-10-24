@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — The Hamper Tells</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">The Hamper <span>Tells</span></a>
+      <div class="d-flex align-items-center gap-2">
+        <a href="index.html" class="btn btn-outline-secondary btn-sm rounded-pill px-3"><i class="fas fa-store me-1"></i> Storefront</a>
+        <a href="login.html" class="btn btn-outline-blush btn-sm rounded-pill px-3"><i class="far fa-user me-1"></i> Customer Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="p-4 p-md-5 bg-white rounded-3 border shadow-sm fade-in">
+            <div class="text-center mb-4">
+              <span class="badge bg-pink text-burgundy border px-3 py-1 mb-2">New Customer</span>
+              <h2 class="font-heading text-burgundy">Create Your Account</h2>
+              <p class="text-muted fs-7">Join The Hamper Tells family for smooth checkout & order tracking.</p>
+            </div>
+
+            <form id="registerForm">
+              <div class="mb-3">
+                <label class="form-label fs-7 font-heading text-muted">Full Name</label>
+                <input type="text" id="regName" class="form-control" placeholder="e.g. Radhika Sharma" required>
+              </div>
+
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fs-7 font-heading text-muted">Email Address</label>
+                  <input type="email" id="regEmail" class="form-control" placeholder="e.g. radhika@example.com" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fs-7 font-heading text-muted">Phone Number</label>
+                  <input type="tel" id="regPhone" class="form-control" placeholder="e.g. 9876543210" required>
+                </div>
+              </div>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                  <label class="form-label fs-7 font-heading text-muted">Password (min 6 chars)</label>
+                  <input type="password" id="regPassword" class="form-control" placeholder="••••••••" minlength="6" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fs-7 font-heading text-muted">Confirm Password</label>
+                  <input type="password" id="regConfirmPassword" class="form-control" placeholder="••••••••" minlength="6" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-blush btn-lg w-100 mb-3">
+                Create Customer Account <i class="fas fa-user-plus ms-2"></i>
+              </button>
+
+              <div class="text-center fs-7 text-muted">
+                Already registered? <a href="login.html" class="fw-semibold">Login here</a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages/auth.js"></script>
+</body>
+</html>

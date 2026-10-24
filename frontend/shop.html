@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Gifts & Hampers — The Hamper Tells</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Demo Notice Bar -->
+  <div class="demo-top-bar">
+    <i class="fas fa-sparkles me-1"></i> Demo Store — Product pricing, availability & reviews shown are sample data for project demonstration.
+  </div>
+
+    <!-- Standardized Luxury Navbar with Equal Spacing -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        The Hamper <span>Tells</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-burgundy fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="custom-hamper.html">Build Your Hamper</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="workshops.html">Workshops</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Right Action Icons (Equal Spacing & Symmetric Alignment) -->
+        <div class="nav-actions-group d-flex align-items-center">
+          <form id="globalSearchForm" class="nav-search-form d-none d-xl-flex">
+            <div class="input-group">
+              <input type="text" id="globalSearchInput" class="form-control" placeholder="Search gifts...">
+              <button class="btn" type="submit" title="Search">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <a href="wishlist.html" class="icon-badge-btn" title="My Wishlist">
+            <i class="far fa-heart"></i>
+          </a>
+
+          <a href="cart.html" class="icon-badge-btn" title="Shopping Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="navCartBadge" class="badge-count" style="display:none;">0</span>
+          </a>
+
+          <a id="navAccountLink" href="login.html" class="btn btn-outline-blush btn-sm">
+            <i class="far fa-user me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Shop Header Banner -->
+  <section class="py-4 text-center" style="background: linear-gradient(135deg, var(--primary-blush), var(--secondary-cream));">
+    <div class="container">
+      <h1 class="font-heading text-burgundy mb-2">Explore Our Luxury Gifting Collection</h1>
+      <p class="text-muted mb-0">Handcrafted hampers, fresh flower bouquets, chocolate arrangements & personalized gifts.</p>
+    </div>
+  </section>
+
+  <!-- Main Shop Body -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        
+        <!-- Left Filter Sidebar -->
+        <div class="col-lg-3">
+          <div class="p-4 bg-white rounded-3 border shadow-sm sticky-top" style="top: 90px;">
+            <h5 class="font-heading text-burgundy mb-3"><i class="fas fa-sliders-h text-pink me-2"></i> Filter Gifts</h5>
+            
+            <!-- Search -->
+            <form id="shopSearchForm" class="mb-4">
+              <label class="form-label fs-7 font-heading text-muted">Search Query</label>
+              <div class="input-group input-group-sm">
+                <input type="text" id="shopSearchInput" class="form-control" placeholder="Roses, Teddy, Hamper...">
+                <button class="btn btn-blush btn-sm" type="submit"><i class="fas fa-search"></i></button>
+              </div>
+            </form>
+
+            <!-- Categories -->
+            <div class="mb-4">
+              <label class="form-label fs-7 font-heading text-muted d-block">Categories</label>
+              <div class="d-flex flex-column gap-1">
+                <button class="btn btn-sm text-start category-filter-btn active py-1" data-category="All">All Categories</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Hampers">Hampers</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Bouquets">Bouquets</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Chocolate Bouquets">Chocolate Bouquets</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Personalized Gifts">Personalized Gifts</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Birthday Gifts">Birthday Gifts</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Anniversary Gifts">Anniversary Gifts</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Flowers">Flowers</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Gift Combos">Gift Combos</button>
+                <button class="btn btn-sm text-start category-filter-btn py-1" data-category="Celebration Gifts">Celebration Gifts</button>
+              </div>
+            </div>
+
+            <!-- Occasion -->
+            <div class="mb-4">
+              <label class="form-label fs-7 font-heading text-muted">Occasion</label>
+              <select id="occasionSelect" class="form-select form-select-sm">
+                <option value="All">All Occasions</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="For Her">For Her</option>
+                <option value="For Him">For Him</option>
+                <option value="Celebration">Celebration</option>
+              </select>
+            </div>
+
+            <!-- Price Range -->
+            <div class="mb-3">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <label class="form-label fs-7 font-heading text-muted mb-0">Max Price</label>
+                <span id="priceValueDisplay" class="fs-7 fw-bold text-pink">Up to ₹5000</span>
+              </div>
+              <input type="range" id="priceRangeSlider" class="form-range" min="300" max="5000" step="100" value="5000">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Product Grid -->
+        <div class="col-lg-9">
+          <!-- Top Sort & Count Bar -->
+          <div class="d-flex flex-wrap justify-content-between align-items-center bg-white p-3 rounded-3 border mb-4 shadow-sm">
+            <div id="productCountDisplay" class="fs-7 text-muted fw-semibold">Showing gifts...</div>
+            
+            <div class="d-flex align-items-center gap-2">
+              <label class="fs-7 text-muted mb-0">Sort By:</label>
+              <select id="sortSelect" class="form-select form-select-sm" style="width: 170px;">
+                <option value="newest">Newest Arrivals</option>
+                <option value="price_asc">Price: Low to High</option>
+                <option value="price_desc">Price: High to Low</option>
+                <option value="popularity">Best Selling & Popular</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Product Grid Container -->
+          <div class="row" id="shopProductsGrid">
+            <!-- Loaded dynamically via shop.js -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container text-center text-muted fs-7">
+      &copy; 2026 The Hamper Tells. TY CSE Diploma Final Year Project.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart-store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages/shop.js"></script>
+</body>
+</html>

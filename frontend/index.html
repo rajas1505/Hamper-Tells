@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Hamper Tells — Premium Personalized Gifting Store</title>
+  <!-- Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Demo Notice Bar -->
+  <div class="demo-top-bar">
+    <i class="fas fa-sparkles me-1"></i> Demo Store — Product pricing, availability & reviews shown are sample data for project demonstration.
+  </div>
+
+    <!-- Standardized Luxury Navbar with Equal Spacing -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        The Hamper <span>Tells</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-burgundy fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="custom-hamper.html">Build Your Hamper</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="workshops.html">Workshops</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Right Action Icons (Equal Spacing & Symmetric Alignment) -->
+        <div class="nav-actions-group d-flex align-items-center">
+          <form id="globalSearchForm" class="nav-search-form d-none d-xl-flex">
+            <div class="input-group">
+              <input type="text" id="globalSearchInput" class="form-control" placeholder="Search gifts...">
+              <button class="btn" type="submit" title="Search">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <a href="wishlist.html" class="icon-badge-btn" title="My Wishlist">
+            <i class="far fa-heart"></i>
+          </a>
+
+          <a href="cart.html" class="icon-badge-btn" title="Shopping Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="navCartBadge" class="badge-count" style="display:none;">0</span>
+          </a>
+
+          <a id="navAccountLink" href="login.html" class="btn btn-outline-blush btn-sm">
+            <i class="far fa-user me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge bg-pink text-burgundy mb-3 px-3 py-2 rounded-pill fs-7 border">
+            ✨ Handmade with Love & Emotions
+          </span>
+          <h1 class="hero-title">Make Every Moment Worth Remembering</h1>
+          <p class="hero-subtitle">
+            Thoughtfully crafted gifts, flower bouquets, chocolate arrangements & personalized hampers tailored for your loved ones.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="shop.html" class="btn btn-blush btn-lg">
+              Shop Gifts <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+            <a href="custom-hamper.html" class="btn btn-outline-blush btn-lg">
+              <i class="fas fa-magic me-2"></i> Build Your Hamper
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-img-box">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=800&auto=format&fit=crop&q=80" alt="The Hamper Tells Luxury Gift">
+            <div class="hero-floating-badge">
+              <div class="d-flex align-items-center gap-3">
+                <i class="fas fa-heart text-danger fs-3"></i>
+                <div>
+                  <h6 class="mb-0 font-heading">100% Custom Tailored</h6>
+                  <small class="text-muted">Personalized messages & themes</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop By Occasion -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="text-pink text-uppercase tracking-wider fs-7 font-heading">Curated Collections</span>
+        <h2 class="font-heading text-burgundy">Shop By Occasion</h2>
+      </div>
+
+      <div class="row g-4 text-center">
+        <div class="col-6 col-md-3">
+          <a href="shop.html?occasion=Birthday" class="text-decoration-none">
+            <div class="p-4 rounded-3 border bg-light shadow-sm hover-up transition">
+              <i class="fas fa-birthday-cake text-pink fs-1 mb-3"></i>
+              <h5 class="font-heading text-brown mb-1">Birthday</h5>
+              <small class="text-muted">Surprise Boxes & Sweets</small>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="shop.html?occasion=Anniversary" class="text-decoration-none">
+            <div class="p-4 rounded-3 border bg-light shadow-sm hover-up transition">
+              <i class="fas fa-heart text-danger fs-1 mb-3"></i>
+              <h5 class="font-heading text-brown mb-1">Anniversary</h5>
+              <small class="text-muted">Roses & Romantic Combos</small>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="shop.html?occasion=For+Her" class="text-decoration-none">
+            <div class="p-4 rounded-3 border bg-light shadow-sm hover-up transition">
+              <i class="fas fa-female text-pink fs-1 mb-3"></i>
+              <h5 class="font-heading text-brown mb-1">For Her</h5>
+              <small class="text-muted">Flowers, Candles & Aesthetics</small>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-6 col-md-3">
+          <a href="shop.html?occasion=For+Him" class="text-decoration-none">
+            <div class="p-4 rounded-3 border bg-light shadow-sm hover-up transition">
+              <i class="fas fa-male text-burgundy fs-1 mb-3"></i>
+              <h5 class="font-heading text-brown mb-1">For Him</h5>
+              <small class="text-muted">Personalized Keepsakes</small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Hampers & Bouquets -->
+  <section class="py-5" style="background-color: var(--secondary-cream);">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <span class="text-pink text-uppercase tracking-wider fs-7 font-heading">Handpicked Creations</span>
+          <h2 class="font-heading text-burgundy mb-0">Featured Hampers & Bouquets</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline-blush btn-sm">View All <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="row" id="featuredHampersContainer">
+        <!-- Loaded dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Build Your Own Hamper Banner -->
+  <section class="py-5 bg-pink text-white" style="background: linear-gradient(135deg, var(--accent-burgundy), var(--accent-rose));">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mb-4 mb-lg-0 text-center text-lg-start">
+          <span class="badge bg-white text-burgundy mb-2 px-3 py-2 rounded-pill fs-7">
+            ✨ Signature Feature
+          </span>
+          <h2 class="display-5 font-heading text-white mb-3">Create Something Truly Personal</h2>
+          <p class="fs-5 text-white-50 mb-0">
+            Choose your favourite base box, add handcrafted gifts, select packaging themes, and attach your heartfelt message with real-time price calculation!
+          </p>
+        </div>
+        <div class="col-lg-4 text-center text-lg-end">
+          <a href="custom-hamper.html" class="btn btn-light btn-lg text-burgundy fw-bold px-4 py-3 rounded-pill shadow">
+            <i class="fas fa-magic me-2"></i> Build Your Hamper Now
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-5" style="background-color: #FFF9FA;">
+    <div class="container py-4 text-center">
+      <span class="text-pink text-uppercase tracking-wider fs-7 font-heading">Simple & Seamless</span>
+      <h2 class="font-heading text-burgundy mb-2">How Gifting Works With Us</h2>
+      <p class="text-muted mb-5 mx-auto fs-7" style="max-width: 600px;">Three easy steps to turn your sentiments into an unforgettable handcrafted surprise.</p>
+
+      <div class="row g-4 text-start">
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-4 border shadow-sm h-100">
+            <span class="badge bg-pink text-burgundy rounded-pill px-3 py-1 mb-3 font-heading fs-7">Step 01</span>
+            <div class="mb-3 text-center">
+              <i class="fas fa-magic text-pink" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="font-heading text-burgundy mb-2 text-center">Pick or Custom-Build</h5>
+            <p class="text-muted fs-7 mb-0">Browse our 27+ ready handcrafted collections or use our 6-step interactive Studio to build a personalized hamper from scratch.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-4 border shadow-sm h-100">
+            <span class="badge bg-pink text-burgundy rounded-pill px-3 py-1 mb-3 font-heading fs-7">Step 02</span>
+            <div class="mb-3 text-center">
+              <i class="fas fa-feather-alt text-pink" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="font-heading text-burgundy mb-2 text-center">Add Personal Touch</h5>
+            <p class="text-muted fs-7 mb-0">Attach heartfelt greeting card messages, select signature ribbons (Blush Pink, Red, Pastel), or request custom polaroids.</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-white rounded-4 border shadow-sm h-100">
+            <span class="badge bg-pink text-burgundy rounded-pill px-3 py-1 mb-3 font-heading fs-7">Step 03</span>
+            <div class="mb-3 text-center">
+              <i class="fas fa-gift text-pink" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="font-heading text-burgundy mb-2 text-center">Doorstep Delivery with Love</h5>
+            <p class="text-muted fs-7 mb-0">Pay seamlessly with dynamic UPI QR code or COD. Every package is triple-boxed to ensure fresh, safe arrival right to their door.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <span class="text-pink text-uppercase tracking-wider fs-7 font-heading">Most Loved Gifts</span>
+          <h2 class="font-heading text-burgundy mb-0">Best Sellers</h2>
+        </div>
+        <a href="shop.html?sort=popularity" class="btn btn-outline-blush btn-sm">See Best Sellers <i class="fas fa-arrow-right ms-1"></i></a>
+      </div>
+
+      <div class="row" id="bestSellersContainer">
+        <!-- Loaded dynamically via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Why The Hamper Tells -->
+  <section class="py-5" style="background-color: var(--secondary-cream);">
+    <div class="container py-4 text-center">
+      <h2 class="font-heading text-burgundy mb-5">Why Choose The Hamper Tells?</h2>
+
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="p-4 bg-white rounded-3 border h-100 shadow-sm">
+            <i class="fas fa-heart text-pink fs-1 mb-3"></i>
+            <h5 class="font-heading">Made With Love</h5>
+            <p class="text-muted fs-7 mb-0">Every hamper and bouquet is handcrafted with deep care and attention to detail.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="p-4 bg-white rounded-3 border h-100 shadow-sm">
+            <i class="fas fa-pen-fancy text-pink fs-1 mb-3"></i>
+            <h5 class="font-heading">Personalized Gifts</h5>
+            <p class="text-muted fs-7 mb-0">Custom photo polaroids, handwritten greeting notes, and name engravings.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="p-4 bg-white rounded-3 border h-100 shadow-sm">
+            <i class="fas fa-ribbon text-pink fs-1 mb-3"></i>
+            <h5 class="font-heading">Handcrafted Creations</h5>
+            <p class="text-muted fs-7 mb-0">Artisan crochet flowers, pipe cleaner bouquets, and aesthetic wrappers.</p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="p-4 bg-white rounded-3 border h-100 shadow-sm">
+            <i class="fas fa-gift text-pink fs-1 mb-3"></i>
+            <h5 class="font-heading">Thoughtful Surprises</h5>
+            <p class="text-muted fs-7 mb-0">Delivering joyful smiles and unforgettable gifting experiences across every occasion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Customer Reviews -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="badge bg-light text-muted border mb-2">Sample / Demo Reviews</span>
+        <h2 class="font-heading text-burgundy">What Our Customers Say</h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-3 border h-100">
+            <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="fst-italic text-brown mb-3">"The custom hamper I built for my sister's birthday was absolutely stunning! The pink packaging and personal note added such a romantic touch."</p>
+            <h6 class="mb-0 font-heading text-burgundy">— Ananya Sharma</h6>
+            <small class="text-muted fs-7">Sample Customer Review</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-3 border h-100">
+            <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="fst-italic text-brown mb-3">"The Dairy Milk chocolate bouquet was delivered right on time for our anniversary! Beautiful presentation and fresh roses."</p>
+            <h6 class="mb-0 font-heading text-burgundy">— Rahul Verma</h6>
+            <small class="text-muted fs-7">Sample Customer Review</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="p-4 bg-light rounded-3 border h-100">
+            <div class="text-warning mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="fst-italic text-brown mb-3">"Ordered the crochet sunflower bouquet. It never wilts and looks so aesthetic on my desk. Highly recommended!"</p>
+            <h6 class="mb-0 font-heading text-burgundy">— Priya Kulkarni</h6>
+            <small class="text-muted fs-7">Sample Customer Review</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <section class="py-5 bg-light">
+    <div class="container py-4">
+      <div class="text-center mb-5">
+        <span class="text-pink text-uppercase tracking-wider fs-7 font-heading">Got Questions?</span>
+        <h2 class="font-heading text-burgundy">Frequently Asked Questions</h2>
+        <p class="text-muted fs-7">Everything you need to know about our handcrafted products, customization & delivery.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="accordion accordion-custom shadow-sm" id="homeFaqAccordion">
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqHeading1">
+                <button class="accordion-button font-heading text-burgundy fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                  <i class="fas fa-question-circle text-pink me-2"></i> How does the "Build Your Hamper" studio work?
+                </button>
+              </h2>
+              <div id="faqCollapse1" class="accordion-collapse collapse show" data-bs-parent="#homeFaqAccordion">
+                <div class="accordion-body text-brown fs-7 bg-white">
+                  Our interactive Hamper Studio lets you select your gift box size, choose your favorite items (artisan chocolates, teddy bear, candles, perfumes, polaroids), pick a signature color-themed ribbon, and compose a personalized message. The pricing updates live in real-time as you customize!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqHeading2">
+                <button class="accordion-button collapsed font-heading text-burgundy fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                  <i class="fas fa-shield-alt text-pink me-2"></i> How are delicate bouquets and chocolates shipped safely?
+                </button>
+              </h2>
+              <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#homeFaqAccordion">
+                <div class="accordion-body text-brown fs-7 bg-white">
+                  We use rigid shock-absorbent corrugated packaging with eco-friendly shredded paper cushioning. For chocolate bouquets and fresh elements, moisture-retaining seals and temperature-controlled insulation prevent heat damage.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqHeading3">
+                <button class="accordion-button collapsed font-heading text-burgundy fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                  <i class="fas fa-qrcode text-pink me-2"></i> What payment methods do you accept?
+                </button>
+              </h2>
+              <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#homeFaqAccordion">
+                <div class="accordion-body text-brown fs-7 bg-white">
+                  We support dynamic UPI QR code payments (Google Pay, PhonePe, Paytm, BHIM), Cash on Delivery (COD), and simulated Instant Online Payments for instant receipt and order confirmation.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item mb-3 border rounded-3 overflow-hidden">
+              <h2 class="accordion-header" id="faqHeading4">
+                <button class="accordion-button collapsed font-heading text-burgundy fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4">
+                  <i class="fas fa-clock text-pink me-2"></i> How long does delivery take?
+                </button>
+              </h2>
+              <div id="faqCollapse4" class="accordion-collapse collapse" data-bs-parent="#homeFaqAccordion">
+                <div class="accordion-body text-brown fs-7 bg-white">
+                  Orders are handcrafted and dispatched within 24 to 48 hours. Standard courier transit takes 2–4 business days. You can also view live order progress inside your account profile!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Instagram Showcase: @_thehampertells_ -->
+  <section class="py-5" style="background-color: var(--secondary-cream);">
+    <div class="container py-4 text-center">
+      <span class="badge bg-pink text-burgundy border px-3 py-1 mb-2">
+        <i class="fab fa-instagram me-1"></i> @_thehampertells_
+      </span>
+      <h2 class="font-heading text-burgundy mb-2">Real Handcrafted Creations</h2>
+      <p class="text-muted fs-7 mb-4 mx-auto" style="max-width: 600px;">
+        Authentic hampers, eternal crochet bouquets, chocolate fan bouquets & surprise decors handcrafted in our studio for real customers!
+      </p>
+      
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <div class="rounded-4 overflow-hidden shadow-sm hover-up position-relative group bg-white border">
+            <img src="/images/instagram/media_1792779839320_a25e7295.jpg" class="w-100" style="height: 250px; object-fit: cover; object-position: top center;" alt="Bestie Hamper Box & Fairy Bouquets">
+            <div class="p-2 text-start">
+              <span class="d-block fw-bold text-burgundy fs-8 text-truncate">Bestie Hamper & Fairy Roses</span>
+              <small class="text-muted fs-8">From ₹699 • Bouquets & Boxes</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <div class="rounded-4 overflow-hidden shadow-sm hover-up position-relative group bg-white border">
+            <img src="/images/instagram/media_1792779839321_f3356cad.jpg" class="w-100" style="height: 250px; object-fit: cover; object-position: center;" alt="Trio Hamper, Bouquet & Bento Cake">
+            <div class="p-2 text-start">
+              <span class="d-block fw-bold text-burgundy fs-8 text-truncate">Hamper, Bouquet & Cake Trio</span>
+              <small class="text-muted fs-8">From ₹1,299 • Celebration Combo</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <div class="rounded-4 overflow-hidden shadow-sm hover-up position-relative group bg-white border">
+            <img src="/images/instagram/media_1792779839322_ec36f7ef.jpg" class="w-100" style="height: 250px; object-fit: cover; object-position: center;" alt="Crochet Eternal Lilies & Tiara Bouquet">
+            <div class="p-2 text-start">
+              <span class="d-block fw-bold text-burgundy fs-8 text-truncate">Crochet Lilies & Tiara Crown</span>
+              <small class="text-muted fs-8">From ₹899 • Hand-Knitted Forever</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2-4">
+          <div class="rounded-4 overflow-hidden shadow-sm hover-up position-relative group bg-white border">
+            <img src="/images/instagram/media_1792779839325_83d201a7.jpg" class="w-100" style="height: 250px; object-fit: cover; object-position: top center;" alt="50 Grand Roses & Holographic Bouquet">
+            <div class="p-2 text-start">
+              <span class="d-block fw-bold text-burgundy fs-8 text-truncate">50 Grand Roses & Holographic</span>
+              <small class="text-muted fs-8">From ₹299 • Dutch Blooms</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4 col-lg-2-4">
+          <div class="rounded-4 overflow-hidden shadow-sm hover-up position-relative group bg-white border">
+            <img src="/images/instagram/media_1792779839327_e7664550.jpg" class="w-100" style="height: 250px; object-fit: cover; object-position: center;" alt="Silk Fan Bouquet & Hello Kitty Bouquet">
+            <div class="p-2 text-start">
+              <span class="d-block fw-bold text-burgundy fs-8 text-truncate">Dairy Milk Silk & Hello Kitty</span>
+              <small class="text-muted fs-8">From ₹849 • Chocolate Fans</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <a href="shop.html" class="btn btn-blush btn-sm px-4 rounded-pill">
+          Explore All Real Creations In Shop <i class="fas fa-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container">
+      <div class="row g-4 mb-5">
+        <div class="col-lg-4">
+          <h3 class="footer-brand">The Hamper Tells</h3>
+          <p class="text-muted fs-7">
+            Handcrafted, personalized gifts, bouquets, and celebration hampers designed to turn special moments into everlasting memories.
+          </p>
+          <div class="d-flex gap-3 text-white fs-5">
+            <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white font-heading mb-3">Quick Links</h6>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="shop.html" class="footer-link">Shop All</a>
+          <a href="custom-hamper.html" class="footer-link">Build Your Hamper</a>
+          <a href="workshops.html" class="footer-link">Workshops</a>
+          <a href="admin-login.html" class="footer-link text-warning"><i class="fas fa-crown me-1"></i> Admin Portal</a>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6 class="text-white font-heading mb-3">Categories</h6>
+          <a href="shop.html?category=Hampers" class="footer-link">Gift Hampers</a>
+          <a href="shop.html?category=Bouquets" class="footer-link">Flower Bouquets</a>
+          <a href="shop.html?category=Chocolate+Bouquets" class="footer-link">Chocolate Bouquets</a>
+          <a href="shop.html?category=Personalized+Gifts" class="footer-link">Personalized Gifts</a>
+        </div>
+
+        <div class="col-lg-4">
+          <h6 class="text-white font-heading mb-3">Contact & Support</h6>
+          <p class="text-muted fs-7 mb-1"><i class="fas fa-envelope me-2 text-pink"></i> contact@thehampertells.demo</p>
+          <p class="text-muted fs-7 mb-1"><i class="fas fa-phone me-2 text-pink"></i> +91 98765 43210 (Demo Contact)</p>
+          <p class="text-muted fs-7 mb-0"><i class="fas fa-map-marker-alt me-2 text-pink"></i> Pune / Social Media Store (Placeholder)</p>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-3 text-center text-muted fs-7">
+        &copy; 2026 The Hamper Tells. TY CSE Diploma Final Year Project. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Application JS -->
+  <script src="js/api.js"></script>
+  <script src="js/cart-store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages/home.js"></script>
+</body>
+</html>

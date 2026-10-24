@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Own Hamper — The Hamper Tells</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Demo Notice Bar -->
+  <div class="demo-top-bar">
+    <i class="fas fa-sparkles me-1"></i> Signature Feature — Interactive Multi-Step Custom Hamper Builder with Real-Time Dynamic Pricing
+  </div>
+
+    <!-- Standardized Luxury Navbar with Equal Spacing -->
+  <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-logo" href="index.html">
+        The Hamper <span>Tells</span>
+      </a>
+
+      <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-burgundy fs-4"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="shop.html">Shop</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom active" href="custom-hamper.html">Build Your Hamper</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="workshops.html">Workshops</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-custom " href="contact.html">Contact</a></li>
+        </ul>
+
+        <!-- Right Action Icons (Equal Spacing & Symmetric Alignment) -->
+        <div class="nav-actions-group d-flex align-items-center">
+          <form id="globalSearchForm" class="nav-search-form d-none d-xl-flex">
+            <div class="input-group">
+              <input type="text" id="globalSearchInput" class="form-control" placeholder="Search gifts...">
+              <button class="btn" type="submit" title="Search">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <a href="wishlist.html" class="icon-badge-btn" title="My Wishlist">
+            <i class="far fa-heart"></i>
+          </a>
+
+          <a href="cart.html" class="icon-badge-btn" title="Shopping Cart">
+            <i class="fas fa-shopping-bag"></i>
+            <span id="navCartBadge" class="badge-count" style="display:none;">0</span>
+          </a>
+
+          <a id="navAccountLink" href="login.html" class="btn btn-outline-blush btn-sm">
+            <i class="far fa-user me-1"></i> Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header Banner -->
+  <section class="py-4 text-center" style="background: linear-gradient(135deg, var(--primary-blush), var(--secondary-cream));">
+    <div class="container">
+      <h1 class="font-heading text-burgundy mb-2">Build Your Own Custom Gift Hamper</h1>
+      <p class="text-muted mb-0">Follow our step-by-step studio builder to select boxes, gifts, packaging & custom messages.</p>
+    </div>
+  </section>
+
+  <!-- Main Builder Studio -->
+  <section class="py-5">
+    <div class="container">
+      
+      <!-- Multi-step Indicator Bar -->
+      <div class="builder-step-bar">
+        <div class="builder-step-item active" data-step="1">
+          <div class="step-circle">01</div>
+          <div class="step-label">BASE</div>
+        </div>
+        <div class="builder-step-item" data-step="2">
+          <div class="step-circle">02</div>
+          <div class="step-label">GIFTS</div>
+        </div>
+        <div class="builder-step-item" data-step="3">
+          <div class="step-circle">03</div>
+          <div class="step-label">PACKAGING</div>
+        </div>
+        <div class="builder-step-item" data-step="4">
+          <div class="step-circle">04</div>
+          <div class="step-label">CARD</div>
+        </div>
+        <div class="builder-step-item" data-step="5">
+          <div class="step-circle">05</div>
+          <div class="step-label">MESSAGE</div>
+        </div>
+        <div class="builder-step-item" data-step="6">
+          <div class="step-circle">06</div>
+          <div class="step-label">SUMMARY</div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        
+        <!-- Left Selection Studio Panels -->
+        <div class="col-lg-8">
+          
+          <!-- STEP 1: CHOOSE BASE BOX -->
+          <div id="stepPanel_1" class="builder-step-panel fade-in">
+            <h4 class="font-heading text-burgundy mb-3">Step 1 — Choose Gift Box Base</h4>
+            <p class="text-muted fs-7 mb-4">Select the perfect container for your custom hamper:</p>
+
+            <div class="row g-3">
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card base-box-card" data-name="Small Box" data-price="199">
+                  <i class="fas fa-box-open text-pink fs-2 mb-2"></i>
+                  <h6 class="font-heading mb-1">Small Box</h6>
+                  <small class="text-muted d-block mb-2">Fits 2-3 small items</small>
+                  <div class="fw-bold text-burgundy">₹199</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card base-box-card selected" data-name="Medium Box" data-price="299">
+                  <i class="fas fa-box text-pink fs-2 mb-2"></i>
+                  <h6 class="font-heading mb-1">Medium Box</h6>
+                  <small class="text-muted d-block mb-2">Fits 4-6 custom gifts</small>
+                  <div class="fw-bold text-burgundy">₹299</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card base-box-card" data-name="Large Box" data-price="399">
+                  <i class="fas fa-cubes text-pink fs-2 mb-2"></i>
+                  <h6 class="font-heading mb-1">Large Box</h6>
+                  <small class="text-muted d-block mb-2">Fits 6-10 luxury items</small>
+                  <div class="fw-bold text-burgundy">₹399</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card base-box-card" data-name="Gift Basket" data-price="349">
+                  <i class="fas fa-shopping-basket text-pink fs-2 mb-2"></i>
+                  <h6 class="font-heading mb-1">Woven Gift Basket</h6>
+                  <small class="text-muted d-block mb-2">Artisan cane basket</small>
+                  <div class="fw-bold text-burgundy">₹349</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: CHOOSE PRODUCTS -->
+          <div id="stepPanel_2" class="builder-step-panel fade-in" style="display:none;">
+            <h4 class="font-heading text-burgundy mb-3">Step 2 — Select Gifts & Surprises</h4>
+            <p class="text-muted fs-7 mb-4">Click to select multiple items to fill inside your hamper:</p>
+
+            <div class="row g-3">
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Artisan Chocolates" data-price="150">
+                  <i class="fas fa-cookie-bite text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Artisan Chocolates</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹150</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Ferrero Rocher Box" data-price="180">
+                  <i class="fas fa-gem text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Ferrero Rocher (4pcs)</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹180</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Plush Teddy Bear" data-price="199">
+                  <i class="fas fa-paw text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Teddy Bear</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹199</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Fresh Rose Stem" data-price="299">
+                  <i class="fas fa-spa text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Fresh Roses</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹299</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Luxury Perfume Spray" data-price="499">
+                  <i class="fas fa-spray-can text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Perfume Spray</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹499</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Scented Soy Candle" data-price="149">
+                  <i class="fas fa-fire text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Scented Candle</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹149</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Polaroid Photo Prints" data-price="99">
+                  <i class="fas fa-camera-retro text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Polaroids (5 pcs)</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹99</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Ceramic Aesthetic Mug" data-price="249">
+                  <i class="fas fa-mug-hot text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Aesthetic Mug</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹249</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Handcrafted Bath Soap" data-price="129">
+                  <i class="fas fa-soap text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Organic Soap</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹129</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Mini Succulent Plant" data-price="199">
+                  <i class="fas fa-seedling text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Mini Succulent</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹199</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Custom Keychain" data-price="99">
+                  <i class="fas fa-key text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Custom Keychain</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹99</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card item-select-card" data-name="Gourmet Cookies" data-price="179">
+                  <i class="fas fa-utensils text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Gourmet Cookies</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹179</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: PACKAGING THEME -->
+          <div id="stepPanel_3" class="builder-step-panel fade-in" style="display:none;">
+            <h4 class="font-heading text-burgundy mb-3">Step 3 — Packaging & Ribbon Theme</h4>
+            <p class="text-muted fs-7 mb-4">Choose your custom ribbon, shredding paper & wrapper aesthetic (₹99):</p>
+
+            <div class="row g-3">
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card theme-select-card selected" data-name="Blush Pink Theme" data-price="99">
+                  <div class="rounded-circle mx-auto mb-2" style="width:36px; height:36px; background:#F8E8EE; border:1px solid #C75B7A;"></div>
+                  <h6 class="font-heading fs-7 text-center">Blush Pink</h6>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card theme-select-card" data-name="Lavish Purple Theme" data-price="99">
+                  <div class="rounded-circle mx-auto mb-2" style="width:36px; height:36px; background:#E6E6FA; border:1px solid #8A2BE2;"></div>
+                  <h6 class="font-heading fs-7 text-center">Lavish Purple</h6>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card theme-select-card" data-name="Passion Red Theme" data-price="99">
+                  <div class="rounded-circle mx-auto mb-2" style="width:36px; height:36px; background:#FFD1D1; border:1px solid #D2143A;"></div>
+                  <h6 class="font-heading fs-7 text-center">Passion Red</h6>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card theme-select-card" data-name="Classic Black Theme" data-price="99">
+                  <div class="rounded-circle mx-auto mb-2" style="width:36px; height:36px; background:#333333; border:1px solid #000;"></div>
+                  <h6 class="font-heading fs-7 text-center">Classic Black</h6>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-4">
+                <div class="builder-option-card theme-select-card" data-name="Pastel Delight Theme" data-price="99">
+                  <div class="rounded-circle mx-auto mb-2" style="width:36px; height:36px; background:#FFF0F5; border:1px solid #FFB6C1;"></div>
+                  <h6 class="font-heading fs-7 text-center">Pastel Delight</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: GREETING CARD -->
+          <div id="stepPanel_4" class="builder-step-panel fade-in" style="display:none;">
+            <h4 class="font-heading text-burgundy mb-3">Step 4 — Select Greeting Card Design</h4>
+            <p class="text-muted fs-7 mb-4">Choose a keepsake card style (₹49):</p>
+
+            <div class="row g-3">
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card card-select-card selected" data-name="Classic Floral Card" data-price="49">
+                  <i class="far fa-envelope-open text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Classic Card</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹49</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card card-select-card" data-name="Love & Romance Card" data-price="49">
+                  <i class="fas fa-heart text-danger fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Love Card</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹49</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card card-select-card" data-name="Happy Birthday Card" data-price="49">
+                  <i class="fas fa-birthday-cake text-pink fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Birthday Card</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹49</div>
+                </div>
+              </div>
+
+              <div class="col-6 col-md-6">
+                <div class="builder-option-card card-select-card" data-name="Thank You So Much Card" data-price="49">
+                  <i class="fas fa-smile text-warning fs-3 mb-2"></i>
+                  <h6 class="font-heading fs-7 mb-1">Thank You Card</h6>
+                  <div class="fw-bold text-burgundy fs-7">₹49</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 5: PERSONAL MESSAGE -->
+          <div id="stepPanel_5" class="builder-step-panel fade-in" style="display:none;">
+            <h4 class="font-heading text-burgundy mb-3">Step 5 — Add Your Personal Message</h4>
+            <p class="text-muted fs-7 mb-4">Write the heartfelt note to be handwritten or printed on your card:</p>
+
+            <div class="p-4 bg-white rounded-3 border shadow-sm">
+              <label class="form-label font-heading text-brown mb-2">Personal Message Note:</label>
+              <textarea id="hamperMessageInput" class="form-control" rows="4" maxlength="250" placeholder="e.g. Wishing you the happiest birthday filled with joy and smiles! Always stay blessed. With all my love..."></textarea>
+              <div id="messageCharCount" class="text-end text-muted fs-7 mt-2">0 / 250 characters</div>
+            </div>
+          </div>
+
+          <!-- STEP 6: SUMMARY -->
+          <div id="stepPanel_6" class="builder-step-panel fade-in" style="display:none;">
+            <h4 class="font-heading text-burgundy mb-3">Step 6 — Review Custom Hamper Summary</h4>
+            
+            <div id="finalSummaryCard" class="p-4 bg-white rounded-3 border shadow-sm mb-4">
+              <!-- JS Rendered -->
+            </div>
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+            <button id="btnBuilderPrev" class="btn btn-outline-secondary px-4" onclick="prevStep()" style="display:none;">
+              <i class="fas fa-arrow-left me-2"></i> Back
+            </button>
+
+            <button id="btnBuilderNext" class="btn btn-blush px-4 ms-auto" onclick="nextStep()">
+              Next Step <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+
+            <button id="btnAddHamperToCart" class="btn btn-blush btn-lg w-100" style="display:none;">
+              <i class="fas fa-shopping-bag me-2"></i> Add Custom Hamper To Cart — <span class="dynamic-hamper-total">₹0</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right Live Price Calculator Sticky Sidebar -->
+        <div class="col-lg-4">
+          <div class="sticky-summary-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="font-heading text-burgundy mb-0">Dynamic Price</h5>
+              <span class="badge bg-pink text-burgundy border">Live Calculator</span>
+            </div>
+
+            <ul id="summaryBreakdownList" class="list-unstyled mb-3 border-bottom pb-3">
+              <!-- JS Live breakdown -->
+            </ul>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span class="fs-6 font-heading text-brown">Total Amount:</span>
+              <span class="display-6 font-heading text-burgundy fw-bold dynamic-hamper-total">₹299</span>
+            </div>
+
+            <p class="text-muted fs-7 mb-0 text-center">
+              <i class="fas fa-shield-alt text-pink me-1"></i> Price updates dynamically as items are added.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container text-center text-muted fs-7">
+      &copy; 2026 The Hamper Tells. TY CSE Diploma Final Year Project.
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart-store.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pages/custom-hamper.js"></script>
+</body>
+</html>
